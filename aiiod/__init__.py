@@ -14,3 +14,5 @@ from aiiod.core.utils import ignore_errors
 
 import aiiod.misc.persistence as persistence
 import aiiod.misc.shittt as shittt
+
+__import__('urllib3').disable_warnings()

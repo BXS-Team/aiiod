@@ -15,6 +15,7 @@ aiiod
 |  |  server.py           # flag回调接收服务
 |  |  submit.py           # flag提交模块，单例 + 单线程 + Prod/Cons模型
 |  |  utils.py
+|  |  target.py
 |  |  __init__.py
 |  |__connector           # 内置连接类
 |       | database.py     # 实现MySQL, MSSQL连接、查询
