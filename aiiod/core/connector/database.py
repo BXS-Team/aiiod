@@ -1,4 +1,4 @@
-import core.exceptions as exceptions
+import aiiod.core.exceptions as exceptions
 
 
 class DBConnector(object):

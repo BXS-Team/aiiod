@@ -1,5 +1,5 @@
 import requests
-import core.exceptions as exceptions
+import aiiod.core.exceptions as exceptions
 import random
 
 from base64 import b64encode
@@ -16,9 +16,9 @@ class AES128Encryptor(object):
 
     def encrypt(self, msg) -> str:
         enc = AES.new(self._key, AES.MODE_CBC, b'\x00' * 16)
-        return b64encode(enc.encrypt(self._padding_pkcs5(msg))).decode()
+        return b64encode(enc.encrypt(self._padding_pkcs7(msg))).decode()
 
-    def _padding_pkcs5(self, msg) -> bytes:
+    def _padding_pkcs7(self, msg) -> bytes:
         if isinstance(msg, str):
             msg = msg.encode()
 

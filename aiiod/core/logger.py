@@ -1,6 +1,6 @@
 import datetime
 import sys
-#from colorama import Fore
+# from colorama import Fore
 
 now = lambda: datetime.datetime.now().strftime('%Y.%m.%d %H:%M:%S')
 

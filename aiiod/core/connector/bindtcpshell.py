@@ -1,7 +1,7 @@
 import socket
 
-from core.connector.shell import Shell
-from core.connector.webshell import _random_str
+from aiiod.core.connector.shell import Shell
+from aiiod.core.connector.webshell import _random_str
 
 
 class BindShellConnector(Shell):

@@ -1,7 +1,7 @@
 import paramiko
 
-import core.exceptions as exceptions
-from core.connector.shell import Shell
+import aiiod.core.exceptions as exceptions
+from aiiod.core.connector.shell import Shell
 
 
 class SSHConnector(Shell):

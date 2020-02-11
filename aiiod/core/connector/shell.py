@@ -3,7 +3,7 @@ import sys
 import socket
 import _thread
 
-import core.globals as g
+import aiiod.core.globals as g
 
 
 class Shell(object):

@@ -6,8 +6,6 @@ AWD Framework written by BXS Team
 
 ```
 aiiod
-|  aiiod.py               # 入口文件，启动定时任务
-|  __diy__.py             # 自定义编码，需自定义攻击、提交flag、初始化等功能
 |
 |__core
 |  |  crontab.py          # 定时任务模块
@@ -27,6 +25,7 @@ aiiod
 |                         #     和PHP WebShell文件上传、PHP冰蝎马命令执行   
 |
 |_misc
+|   | obscure.py          # 混淆流量
 |   | persistence.py      # 持久化模块
 |   |_shittt.py           # 搅屎模块
 |
@@ -38,16 +37,6 @@ aiiod
 
 ### Usage
 
-在`__diy__.py`中编写攻击和提交flag代码，从`aiiod.py`启动
-
-```
-$ python3 aiiod.py
-```
-
-### QA
-
-+ Reverse shell需通过更稳定的持久化管理器接收
-+ `__diy__.py`中的攻击函数需以`_a_`开头以被自动加载
-+ 仅支持Python3.6+，系统不限
+See `run.py`
 
 ### [Contributors](https://github.com/BXS-Team/aiiod/graphs/contributors)

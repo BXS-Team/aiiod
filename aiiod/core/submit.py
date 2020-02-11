@@ -3,7 +3,8 @@ import time
 import threading
 import _thread
 
-from core.utils import singleton
+from aiiod.core.utils import singleton
+import aiiod.core.logger as logger
 
 
 @singleton
@@ -11,17 +12,18 @@ class Submiter(object):
     RETRY = 3
     RETRY_DURATION = 3
 
-    def __init__(self, submit_flag_fn):
+    def __init__(self, submit_flag_fn, delay=0):
         self._flag_lst = queue.Queue()
         self._exit = False
         self._thread = None
         self._submit_flag_fn = submit_flag_fn
+        self._delay = delay
         # self._max_workers = max_workers
 
     def add_flag(self, flag: dict):
         """flag should be a dict such as `{'flag': '', 'ip': ''}`"""
         if not isinstance(flag, dict):
-            flag = {'flag': flag.__str__()}
+            flag = {'flag': flag}
         for k in flag.keys():
             flag[k] = flag[k].strip()
         self._flag_lst.put(flag)
@@ -31,8 +33,9 @@ class Submiter(object):
             try:
                 flag = self._flag_lst.get()
                 self._submit_flag_fn(**flag)
-            except Exception:
-                pass
+                time.sleep(self._delay)
+            except Exception as e:
+                logger.error(e.__str__())
 
     def submit_flag_with_retry(self):
         while True:
